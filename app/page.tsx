@@ -1,6 +1,7 @@
 import HeaderPage from "./_components/Header";
 import ReviewsPage from "./_components/Reviews";
 import Image from "next/image";
+import SoundGame from "./_components/SoundGame";
 
 
 
@@ -133,6 +134,7 @@ export default function Home() {
       </div>
     </div>
   </section>
+  <SoundGame/>
       <ReviewsPage/>
     </main>
   );
