@@ -91,6 +91,48 @@ export default function Home() {
   </div>
 
 </section>
+  <section className="mx-auto max-w-6xl py-16">
+    <div className="mb-10 text-center">
+      <h2 className="text-3xl font-bold text-slate-600 md:text-4xl">
+         Чому батьки обирають мене
+      </h2>
+      <p className="mt-4 text-lg text-slate-500">
+        Створюємо комфортні умови для розвитку мовлення кожної дитини.
+      </p>
+    </div>
+    <div className="grid gap-6 md:grid-cols-3">
+      <div className="rounded-3xl bg-white p-8 shadow-sm hover:-translate-1 hover:shadow-1">
+        <div className="text-3xl mb-4 ">💛
+      <h3 className="text-xl font-bold text-slate-600">
+         Індивідуальний підхід
+      </h3>
+      <p className="mt-8 text-xl leading-7 text-slate-400">
+          Враховуємо потреби, вік та темп розвитку кожної дитини.
+      </p>
+        </div>
+      </div>
+      <div className="rounded-3xl bg-white p-8 shadow-sm hover:-translate-1 hover:shadow-sm">
+        <div className="text-3xl mb-4 ">🎲
+      <h3 className="text-xl font-bold text-slate-600">
+        Навчання через гру
+      </h3>
+      <p className="text-xl mt-8 leading-7 text-slate-400">
+         Перетворюємо заняття на цікаві ігри та захопливі завдання.
+      </p>
+        </div>
+      </div>
+      <div className="rounded-3xl bg-white p-8 shadow-sm hover:-translate-1 hover:shadow-1">
+        <div className="text-3xl mb-4 ">🤝
+        <h3 className="text-xl font-bold text-slate-600">
+          Підтримка батьків
+        </h3>
+        <p className="text-xl mt-8 leading-7 text-slate-400">
+          Допомагаємо батькам підтримувати розвиток мовлення вдома.
+        </p>
+        </div>
+      </div>
+    </div>
+  </section>
       <ReviewsPage/>
     </main>
   );
