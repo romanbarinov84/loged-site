@@ -7,6 +7,7 @@ const SoundGame = () => {
     const [mode, setMode] = useState<'independent' | 'together'>('independent');
     const [selectedCards, setSelectedCards] = useState<number[]>([]);
     const [isChecked, setIsChecked] = useState(false);
+    const [selectedSound, setSelectedSound] = useState<'с' | 'ш'>('с');
 
     function toggleCard(id: number) {
         setIsChecked(false);
@@ -16,13 +17,12 @@ const SoundGame = () => {
                 : [...current, id],
         );
     }
-
     const correctAnswers = cards.filter((card) => {
         const isSelected = selectedCards.includes(card.id);
+        const hasSound = card.sounds.includes(selectedSound);
 
-        return (card.hasSound && isSelected) || (!card.hasSound && !isSelected);
+        return isSelected === hasSound;
     }).length;
-
 
     return (
         <section id="games" className="mx-auto max-w-6xl px-6 py-16">
@@ -42,6 +42,43 @@ const SoundGame = () => {
                 <p className="mt-3 leading-7 text-slate-600">
                     Обирай картинки, у назвах яких є потрібний звук.
                 </p>
+                <div className="mt-6">
+                    <p className="mt-3 mb-3 font-bold text-center text-slate-600">
+                        Який звук шукаємо?
+                    </p>
+                    <div className="flex gap-3">
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setSelectedSound('с');
+                                setSelectedCards([]);
+                                setIsChecked(false);
+                            }}
+                            className={`rounded-full px-6 py-4 transition font-bold ${
+                                selectedSound === 'с'
+                                    ? 'bg-teal-600 text-white'
+                                    : 'bg-teal-100 text-slate-600 hover:bg-slate-200'
+                            }`}
+                        >
+                            звук С
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setSelectedSound('ш');
+                                setSelectedCards([]);
+                                setIsChecked(false);
+                            }}
+                            className={`rounded-full px-6 py-4 transition font-bold ${
+                                selectedSound === 'ш'
+                                    ? 'bg-teal-600 text-white'
+                                    : 'bg-teal-100 text-slate-600 hover:bg-slate-200'
+                            }`}
+                        >
+                            звук Ш
+                        </button>
+                    </div>
+                </div>
                 <div className="mt-8 flex flex-wrap gap-3">
                     <button
                         onClick={() => setMode('independent')}
@@ -84,16 +121,22 @@ const SoundGame = () => {
                 <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
                     {cards.map((card) => {
                         const isSelected = selectedCards.includes(card.id);
+                        const hasSound = card.sounds.includes(selectedSound);
+                        const isCorrect = hasSound === isSelected;
 
                         return (
                             <button
                                 type="button"
                                 key={card.id}
                                 onClick={() => toggleCard(card.id)}
-                                className={`rounded-2x border-2 p-5 text-center transition ${
-                                    isSelected
-                                        ? 'border-orange-500 bg-orange-50'
-                                        : 'border-slate-100 bg-white hover:border-teal-100'
+                                className={`rounded-2xl border-2 p-5 text-center transition ${
+                                    isChecked
+                                        ? isCorrect
+                                            ? 'border-teal-500 bg-teal-50'
+                                            : 'border-red-400 bg-red-50'
+                                        : isSelected
+                                          ? 'border-orange-500 bg-orange-50'
+                                          : 'border-slate-100 bg-white hover:border-teal-400'
                                 }`}
                             >
                                 <span className="block text-5xl">
