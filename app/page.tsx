@@ -1,4 +1,4 @@
-import HeaderPage from "./_components/Header";
+
 import ReviewsPage from "./_components/Reviews";
 import Image from "next/image";
 import SoundGame from "./_components/SoundGame";
@@ -7,10 +7,10 @@ import SoundGame from "./_components/SoundGame";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-amber-50 px-6 py-6">
-      <HeaderPage />
+    <main className="min-h-screen bg-amber-50 px-4 py-4">
+     
 
-     <section className="mx-auto grid max-w-6xl py-16 items-center gap-12 md:grid-cols-2">
+     <section className="mx-auto grid max-w-6xl py-10 items-center gap-8 md:grid-cols-2">
       <div>
          <h1 className="max-w-3xl text-4xl font-extrabold leading-tight text-slate-900 md:text-6xl">
     Розвиваємо мовлення дитини через гру!
